@@ -1,0 +1,39 @@
+# Menggunakan Docker Compose versi 3.7
+version: '3.7'
+
+services:
+  item-app:
+    # Menggunakan image dari GitHub Container Registry
+    image: ghcr.io/maulanadw/a433-microservices:v1
+    # Port mapping agar bisa diakses dari port 80 di host
+    ports:
+      - 80:8080
+    # Memastikan item-app hanya berjalan setelah item-db diluncurkan
+    depends_on:
+      - item-db
+    # Direktori kerja di dalam container
+    working_dir: /app
+    # Menghubungkan volume host ke volume container
+    volumes:
+      - ./:/app
+    # Variabel lingkungan untuk mengonfigurasi koneksi MongoDB
+    environment:
+      MONGO_HOST: item-db
+      MONGO_USER: test
+      MONGO_PASSWORD: admin
+      MONGO_DB: admin
+    # Restart policy agar container selalu restart ketika terhenti
+    restart: always
+      
+  item-db:
+    # Menggunakan image resmi MongoDB dari Docker Hub
+    image: mongo:3
+    # Menggunakan volume app-db untuk penyimpanan data
+    volumes:
+      - app-db:/data/db
+    # Restart policy agar container selalu restart ketika terhenti
+    restart: always
+
+# Membuat volume bernama app-db
+volumes:
+  app-db:
