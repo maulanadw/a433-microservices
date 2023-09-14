@@ -6,7 +6,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: item-app
+  IMAGE_NAME: maulanadw/item-app
 
 jobs:
   build-and-push-image:
