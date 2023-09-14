@@ -4,7 +4,7 @@ version: '3.7'
 services:
   item-app:
     # Menggunakan image dari GitHub Container Registry
-    image: ghcr.io/maulanadw/a433-microservices:v1
+    image: ghcr.io/maulanadw/item-app:v1
     # Port mapping agar bisa diakses dari port 80 di host
     ports:
       - 80:8080
