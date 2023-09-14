@@ -13,9 +13,6 @@ services:
       - item-db
     # Direktori kerja di dalam container
     working_dir: /app
-    # Menghubungkan volume host ke volume container
-    volumes:
-      - ./:/app
     # Variabel lingkungan untuk mengonfigurasi koneksi MongoDB
     environment:
       MONGO_HOST: item-db
