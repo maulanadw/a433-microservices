@@ -7,10 +7,10 @@ docker build -t item-app:v1 .
 docker images
 
 # Mengubah nama image agar sesuai dengan format GitHub Packages
-docker tag item-app:v1 ghcr.io/maulanadw/a433-microservices/item-app:v1
+docker tag item-app:v1 ghcr.io/maulanadw/item-app:v1
 
 # Login ke GitHub Packages
 echo $GITHUB_TOKEN | docker login ghcr.io -u maulanadw --password-stdin
 
 # Mengunggah image ke GitHub Packages
-docker push ghcr.io/maulanadw/a433-microservices/item-app:v1
+docker push ghcr.io/maulanadw/item-app:v1
