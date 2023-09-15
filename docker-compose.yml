@@ -11,14 +11,6 @@ services:
     # Memastikan item-app hanya berjalan setelah item-db diluncurkan
     depends_on:
       - item-db
-    # Direktori kerja di dalam container
-    working_dir: /app
-    # Variabel lingkungan untuk mengonfigurasi koneksi MongoDB
-    environment:
-      MONGO_HOST: item-db
-      MONGO_USER: test
-      MONGO_PASSWORD: admin
-      MONGO_DB: admin
     # Restart policy agar container selalu restart ketika terhenti
     restart: always
       
